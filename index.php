@@ -57,9 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
         }
         label, input, button {
             display: block;
-            width: 70%; /* Reduced from 100% */
+            width: 60%; /* Reduced from 70% */
             margin: 5px 0;
             text-align: left;
+        }
+        button {
+            width: 50%; /* Reduced button width */
+            padding: 8px;
+            font-size: 14px;
         }
         table {
             width: 100%;
@@ -80,8 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             left: 50%;
             transform: translate(-50%, -50%);
             background: white;
-            padding: 24px; /* Increased padding for a larger modal */
-            width: 60%; /* Increased size by 20% */
+            padding: 24px; /* Increased modal size */
+            width: 60%; /* Increased modal size by 20% */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
         .modal.active {
@@ -89,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
         }
         .modal button {
             margin-top: 10px;
+            width: 50%; /* Reduced button width inside modal */
         }
     </style>
 </head>
@@ -129,3 +135,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
     </div>
 </body>
 </html>
+
