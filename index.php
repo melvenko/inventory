@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             text-align: left;
         }
         button {
-            width: 50%; /* Reduced button width */
+            width: 20%; /* Reduced button width */
             padding: 8px;
             font-size: 14px;
         }
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
         }
         .modal button {
             margin-top: 10px;
-            width: 50%; /* Reduced button width inside modal */
+            width: 20%; /* Reduced button width inside modal */
         }
     </style>
 </head>
