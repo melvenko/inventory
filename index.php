@@ -113,7 +113,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             background-color: #ff0055;
             font-size: 16px;
             font-weight: bold;
-            cursor: pointer;
             transition: background 0.3s;
             color: white;
             cursor: pointer;
@@ -149,14 +148,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             display: block;
         }
         .modal button {
-            padding: 12px;
+            padding: 12px 20px;
             font-size: 16px;
             border: none;
-            border-radius: 4px;
+            border-radius: 25px;
+            background-color: #ff0055;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+            color: white;
             cursor: pointer;
         }
         .modal button[type="submit"] {
-            background-color: #28a745;
+            background-color: #ff0055;
             color: white;
         }
 
