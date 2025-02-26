@@ -111,9 +111,6 @@
 
     </div>
     
-    <footer>
-        <img src="images/get.png" alt="Melvenko Designs Logo" class="footer-logo">
-        <span>&copy; 2025 Melvenko Designs. All rights reserved.</span>
-    </footer>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
