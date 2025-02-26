@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         button {
             padding: 10px 20px;
             border: 1px solid #ccc;
-            border-radius: 15px;
+            border-radius: 10px;
             /* background-color: #28a745; */
             background-color: #ff0055;
             font-size: 16px;
@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             padding: 12px 20px;
             font-size: 16px;
             border: none;
-            border-radius: 15px;
+            border-radius: 10px;
             background-color: #ff0055;
             font-size: 16px;
             font-weight: bold;
