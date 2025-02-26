@@ -166,8 +166,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
 
         .modal .close-btn {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            /* top: 15px; */
+            top: 0px;
+            right: -170px;
+            /* right: 20px; */
             background: none;
             border: none;
             font-size: 24px;
