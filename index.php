@@ -99,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             width: 60%; /* Increased modal size by 20% */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             text-align: left; /* Align content to the left */
+            z-index: 2; /* Ensure modal appears above overlay */
         }
         .modal.active {
             display: block;
@@ -111,8 +112,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
         .modal .close-btn {
             float: left; /* Move button to the left */
             margin-bottom: 10px;
-}
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            backdrop-filter: blur(5px); /* Blurring effect */
+            z-index: 1;
+        }
     </style>
+        <!--JS for modal -->
+        function openModal() {
+            document.getElementById('orderModal').classList.add('active');
+            document.getElementById('modalOverlay').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('active');
+            document.getElementById('modalOverlay').style.display = 'none';
+        }
 </head>
 <body>
     <div class="container">
@@ -133,6 +155,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
         </table>
 
         <h2><a href="#" onclick="document.getElementById('orderModal').classList.add('active')">Place Order</a></h2>
+
+        <div id="modalOverlay" class="modal-overlay"></div>
         <div id="orderModal" class="modal">
             <h2>Place Order</h2>
             <table>
@@ -141,12 +165,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
                         <form method="post">
                             <label>Product ID:</label> <input type="text" name="product_id" placeholder="Product ID" required>
                             <label>Quantity:</label> <input type="text" name="quantity" placeholder="Quantity" required>
-                            <button type="submit" name="place_order">Place Order</button>
+                            <h2><a href="#" onclick="openModal()">Place Order</a></h2>
+                            <!---<button type="submit" name="place_order">Place Order</button>-->
                         </form>
                     </td>
                 </tr>
             </table>
-            <button class="close-btn" onclick="document.getElementById('orderModal').classList.remove('active')">Close</button>
+            <!--<button class="close-btn" onclick="document.getElementById('orderModal').classList.remove('active')">Close</button>-->
+            <button class="close-btn" onclick="closeModal()">Close</button>
         </div>
     </div>
 </body>
