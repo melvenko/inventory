@@ -75,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             width: 100%;
             max-width: 400px;
             margin: 5px 0;
+            
         }
         input {
             padding: 10px;
@@ -166,8 +167,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             display: none;
         }
         .error-message {
-            background-color: #d3d3d3;
-            color: #333;
+            background-color:rgb(236, 5, 5);
+            color: #fff;
         }
         .success-message {
             background-color: rgba(0, 255, 0, 0.2);
