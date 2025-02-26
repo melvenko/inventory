@@ -166,14 +166,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
 
         .modal .close-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 15px;
+            right: 20px;
             background: none;
             border: none;
             font-size: 24px;
             font-weight: bold;
             cursor: pointer;
             color: black;
+            transition: color 0.3s ease;
+        }
+        .modal .close-btn:hover {
+            color: red;
         }
 
 
