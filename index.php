@@ -108,13 +108,7 @@
                 <p>Effective stock management is crucial for any business to maintain smooth operations and prevent losses. Using an inventory system helps track stock levels in real-time, reducing the risk of overstocking or running out of essential products. It improves efficiency by automating stock updates, minimizing human errors, and ensuring accurate order fulfillment. Additionally, a well-managed inventory system enhances customer satisfaction by ensuring timely product availability. Ultimately, it aids in better financial planning and decision-making, leading to increased profitability and business growth.</p>
             </div>
         </div>
-        
-        <div class="badge">
-            <p>Need a reliable staging environment and managed WordPress hosting? Sign up for InstaWP today!</p>
-            <a href="https://app.instawp.io/register?ref=fnK4lgnFE4" target="_blank">
-                <img src="images/referral-badge-1.svg" alt="Referral Badge">
-            </a>
-        </div>
+
     </div>
     
     <footer>
