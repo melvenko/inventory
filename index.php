@@ -169,6 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             margin-bottom: 10px;
             background-color: #ccc;
             color: black;
+            width: 50%;
         }
         .modal-overlay {
             display: none;
