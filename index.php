@@ -125,6 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             z-index: 1;
         }
     </style>
+    <script>
         <!--JS for modal -->
         function openModal() {
             document.getElementById('orderModal').classList.add('active');
@@ -135,6 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             document.getElementById('orderModal').classList.remove('active');
             document.getElementById('modalOverlay').style.display = 'none';
         }
+    </script>
 </head>
 <body>
     <div class="container">
