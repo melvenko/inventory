@@ -71,8 +71,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
         }
         button {
             width: 20%; /* Reduced button width - feb 26*/
-            padding: 8px;
+            padding: 12px 20px;
             font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         table {
             width: 100%;
