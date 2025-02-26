@@ -134,21 +134,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             background: white;
             border-radius: 20px;
             padding: 24px;
-            width: 60%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            text-align: left;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
             z-index: 2;
         }
         .modal.active {
             display: block;
         }
         .modal button {
-            margin-top: 10px;
-            width: 20%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
+        .modal button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+        }
+
         .modal .close-btn {
             float: left;
             margin-bottom: 10px;
+            background-color: #ccc;
+            color: black;
         }
         .modal-overlay {
             display: none;
@@ -158,9 +169,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(3px);
             z-index: 1;
         }
+        .modal h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .modal p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
         
         .error-message, .success-message {
             padding: 10px;
@@ -252,19 +284,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
 
     <!-- Modal -->
     <div id="orderModal" class="modal">
-        <h2>Place Order</h2>
+        <h2>New Order</h2>
+        <p>Select a product and quantity to place an order.</p>
         <table>
             <tr>
                 <td>
                     <form method="post">
-                        <label>Product ID:</label> <input type="text" name="product_id" placeholder="Product ID" required>
-                        <label>Quantity:</label> <input type="text" name="quantity" placeholder="Quantity" required>
-                        <button type="submit" name="place_order">Place Order</button>
+                        <label>Enter Product ID:</label> <input type="text" id="product_id" name="product_id" placeholder="Product ID" required>
+                        <label>Enter Quantity:</label> <input type="number" id="quantity" name="quantity" placeholder="Quantity" required>
+                        <button type="submit" name="place_order">Submit Order</button>
                     </form>
                 </td>
             </tr>
         </table>
-        <button class="close-btn" onclick="closeModal()">Close</button>
+        <button class="close-btn" onclick="closeModal()">Cancel</button>
     </div>
 </body>
 </html>
