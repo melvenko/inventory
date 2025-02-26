@@ -1,5 +1,7 @@
 <?php
-// index.php
+// Start session for transient messages
+session_start();
+
 include 'database.php';
 
 // Enable error reporting for debugging (remove in production)
@@ -13,6 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     $sale_price = $_POST['sale_price'];
     $imagePath = '';
 
+    // Check if product with same SKU already exists
+    $stmt = $conn->prepare("SELECT id FROM products WHERE sku = ?");
+    $stmt->bind_param("s", $sku);
+    $stmt->execute();
+    $stmt->store_result();
+    
+    if ($stmt->num_rows > 0) {
+        $_SESSION['error'] = "You're trying to create a duplicate product. Enter a new one.";
+        header("Location: index.php");
+        exit;
+    }
+    $stmt->close();
+
     if (!empty($_FILES['image']['name'])) {
         $uploadDir = 'uploads/';
         if (!is_dir($uploadDir)) {
@@ -22,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
     }
 
-    // Ensure price and sale_price are cast as floats if needed
+    // Ensure price and sale_price are cast as floats
     $price = (float)$price;
     $sale_price = (float)$sale_price;
 
@@ -30,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     $stmt->bind_param("ssdds", $sku, $name, $price, $sale_price, $imagePath);
     $stmt->execute();
     $stmt->close();
+
+    $_SESSION['success'] = "Product added successfully!";
     header("Location: index.php");
     exit;
 }
@@ -42,6 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
     $stmt->bind_param("ii", $product_id, $quantity);
     $stmt->execute();
     $stmt->close();
+
+    $_SESSION['success'] = "Order placed successfully!";
     header("Location: index.php");
     exit;
 }
@@ -60,109 +79,61 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             width: 60%;
             margin: auto;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        label, input {
-            display: block;
-            width: 60%;
-            margin: 5px 0;
-            text-align: left;
-        }
-        input {
-            padding: 12px 20px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            width: 20%;
-            padding: 12px 20px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
+        .message {
             padding: 10px;
-            text-align: center;
-        }
-        .modal {
+            margin: 10px auto;
+            width: 80%;
+            border-radius: 5px;
+            font-weight: bold;
             display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 24px;
-            width: 60%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            text-align: left;
-            z-index: 2;
         }
-        .modal.active {
-            display: block;
+        .error {
+            background-color: #ffcccc;
+            border: 1px solid #ff0000;
+            color: #990000;
         }
-        .modal button {
-            margin-top: 10px;
-            width: 20%;
-        }
-        .modal .close-btn {
-            float: left;
-            margin-bottom: 10px;
-        }
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            z-index: 1;
+        .success {
+            background-color: #ccffcc;
+            border: 1px solid #008000;
+            color: #006600;
         }
     </style>
     <script>
-        function openModal() {
-            document.getElementById('orderModal').classList.add('active');
-            document.getElementById('modalOverlay').style.display = 'block';
+        function closeMessage() {
+            document.getElementById('messageBox').style.display = 'none';
         }
-        function closeModal() {
-            document.getElementById('orderModal').classList.remove('active');
-            document.getElementById('modalOverlay').style.display = 'none';
-        }
+        window.onload = function() {
+            var messageBox = document.getElementById('messageBox');
+            if (messageBox) {
+                messageBox.style.display = 'block';
+                setTimeout(closeMessage, 5000); // Auto-hide after 5 sec
+            }
+        };
     </script>
 </head>
 <body>
     <div class="container">
-        <h2>Add Product</h2>
-        <table>
-            <tr>
-                <td>
-                    <form method="post" enctype="multipart/form-data">
-                        <label>SKU:</label> <input type="text" name="sku" placeholder="SKU" required>
-                        <label>Name:</label> <input type="text" name="name" placeholder="Name" required>
-                        <label>Price:</label> <input type="text" name="price" placeholder="Price" required>
-                        <label>Sale Price:</label> <input type="text" name="sale_price" placeholder="Sale Price">
-                        <label>Image:</label> <input type="file" name="image">
-                        <button type="submit" name="add_product">Add Product</button>
-                    </form>
-                </td>
-            </tr>
-        </table>
+        <!-- Display Transient Messages -->
+        <?php if (isset($_SESSION['error'])): ?>
+            <div id="messageBox" class="message error" onclick="closeMessage()">
+                <?= $_SESSION['error']; unset($_SESSION['error']); ?>
+            </div>
+        <?php elseif (isset($_SESSION['success'])): ?>
+            <div id="messageBox" class="message success" onclick="closeMessage()">
+                <?= $_SESSION['success']; unset($_SESSION['success']); ?>
+            </div>
+        <?php endif; ?>
 
-        <!-- Open Modal Link -->
+        <h2>Add Product</h2>
+        <form method="post" enctype="multipart/form-data">
+            <label>SKU:</label> <input type="text" name="sku" placeholder="SKU" required>
+            <label>Name:</label> <input type="text" name="name" placeholder="Name" required>
+            <label>Price:</label> <input type="text" name="price" placeholder="Price" required>
+            <label>Sale Price:</label> <input type="text" name="sale_price" placeholder="Sale Price">
+            <label>Image:</label> <input type="file" name="image">
+            <button type="submit" name="add_product">Add Product</button>
+        </form>
+
         <h2><a href="javascript:void(0)" onclick="openModal()">Place Order</a></h2>
     </div>
 
@@ -172,17 +143,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
     <!-- Modal -->
     <div id="orderModal" class="modal">
         <h2>Place Order</h2>
-        <table>
-            <tr>
-                <td>
-                    <form method="post">
-                        <label>Product ID:</label> <input type="text" name="product_id" placeholder="Product ID" required>
-                        <label>Quantity:</label> <input type="text" name="quantity" placeholder="Quantity" required>
-                        <button type="submit" name="place_order">Place Order</button>
-                    </form>
-                </td>
-            </tr>
-        </table>
+        <form method="post">
+            <label>Product ID:</label> <input type="text" name="product_id" placeholder="Product ID" required>
+            <label>Quantity:</label> <input type="text" name="quantity" placeholder="Quantity" required>
+            <button type="submit" name="place_order">Place Order</button>
+        </form>
         <button class="close-btn" onclick="closeModal()">Close</button>
     </div>
 </body>
