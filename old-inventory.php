@@ -10,10 +10,9 @@
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             background-color: #f5f5f5;
         }
         .container {
@@ -46,26 +45,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             min-height: 300px;
         }
-        .badge {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        footer {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-        .footer-logo {
-            height: 30px;
-        }
     </style>
 </head>
 <body>
@@ -75,24 +54,12 @@
         
         <div class="grid">
             <div class="left-column">
-
                 <img src="images/vecteezy.jpg" alt="Inventory System Illustration">
             </div>
             <div class="right-column">
                 <!-- Placeholder for future content -->
             </div>
         </div>
-        
-        <div class="badge">
-            <a href="https://app.instawp.io/register?ref=fnK4lgnFE4" target="_blank">
-                <img src="images/referral-badge-1.svg" alt="Referral Badge">
-            </a>
-        </div>
     </div>
-    
-    <footer>
-        <img src="images/get.png" alt="Melvenko Designs Logo" class="footer-logo">
-        <span>&copy; 2025 Melvenko Designs. All rights reserved.</span>
-    </footer>
 </body>
 </html>
