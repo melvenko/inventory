@@ -61,8 +61,17 @@
         }
         .badge {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
             margin-top: 20px;
+            text-align: center;
+        }
+        .badge p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
         footer {
             position: fixed;
@@ -101,6 +110,7 @@
         </div>
         
         <div class="badge">
+            <p>Need a reliable staging environment and managed WordPress hosting? Sign up for InstaWP today!</p>
             <a href="https://app.instawp.io/register?ref=fnK4lgnFE4" target="_blank">
                 <img src="images/referral-badge-1.svg" alt="Referral Badge">
             </a>
