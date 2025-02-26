@@ -61,6 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             margin: 5px 0;
             text-align: left;
         }
+        input {
+
+        }
         button {
             width: 20%; /* Reduced button width - feb 26*/
             padding: 8px;
@@ -105,10 +108,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             <tr>
                 <td>
                     <form method="post" enctype="multipart/form-data">
-                        <label>SKU:</label> <input type="text" name="sku" required>
-                        <label>Name:</label> <input type="text" name="name" required>
-                        <label>Price:</label> <input type="text" name="price" required>
-                        <label>Sale Price:</label> <input type="text" name="sale_price">
+                        <label>SKU:</label> <input type="text" name="sku" placeholder="SKU" required>
+                        <label>Name:</label> <input type="text" name="name" placeholder="Name" required>
+                        <label>Price:</label> <input type="text" name="price" placeholder="Price" required>
+                        <label>Sale Price:</label> <input type="text" placeholder="Sale Price" name="sale_price">
                         <label>Image:</label> <input type="file" name="image">
                         <button type="submit" name="add_product">Add Product</button>
                     </form>
@@ -123,8 +126,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
                 <tr>
                     <td>
                         <form method="post">
-                            <label>Product ID:</label> <input type="text" name="product_id" required>
-                            <label>Quantity:</label> <input type="text" name="quantity" required>
+                            <label>Product ID:</label> <input type="text" name="product_id" placeholder="Product ID" required>
+                            <label>Quantity:</label> <input type="text" name="quantity" placeholder="Quantity" required>
                             <button type="submit" name="place_order">Place Order</button>
                         </form>
                     </td>
