@@ -160,15 +160,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
 
         <div id="modalOverlay" class="modal-overlay"></div>
         <div id="orderModal" class="modal">
-            <h2>Place Order</h2>
+        <h2><a href="#" onclick="openModal()">Place Order</a></h2>
             <table>
                 <tr>
                     <td>
                         <form method="post">
                             <label>Product ID:</label> <input type="text" name="product_id" placeholder="Product ID" required>
                             <label>Quantity:</label> <input type="text" name="quantity" placeholder="Quantity" required>
-                            <h2><a href="#" onclick="openModal()">Place Order</a></h2>
-                            <!---<button type="submit" name="place_order">Place Order</button>-->
+                            <button type="submit" name="place_order">Place Order</button>
                         </form>
                     </td>
                 </tr>
