@@ -61,10 +61,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             font-family: Arial, sans-serif;
             margin: 20px;
             text-align: center;
+            height: 100%;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
         }
         .container {
             width: 60%;
             margin: auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         form {
             display: flex;
@@ -84,32 +92,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             border-radius: 4px;
             box-sizing: border-box;
         }
-        /* label, input {
-            display: block;
-            width: 60%;
-            margin: 5px 0;
-            text-align: left;
-        }
-        input {
-            padding: 12px 20px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        } */
-        /* button {
-            width: 20%;
-            padding: 12px 20px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        } */
-
         button {
             padding: 10px 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
-            /* background-color: #28a745; */
             background-color: #ff0055;
             font-size: 16px;
             font-weight: bold;
@@ -248,7 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             margin-top: 20px;
         }
         footer {
-            margin-top: 50px;
+            margin-top: auto;
             padding: 20px;
             background-color: #333;
             color: white;
