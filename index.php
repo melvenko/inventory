@@ -106,10 +106,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         } */
 
         button {
-            padding: 10px;
+            padding: 10px 20px;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #28a745;
+            border-radius: 25px;
+            /* background-color: #28a745; */
+            background-color: #ff0055;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
             color: white;
             cursor: pointer;
         }
@@ -175,24 +180,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         .modal h2 {
             font-size: 22px;
             margin-bottom: 10px;
+            color: #333;
         }
         .modal p {
             font-size: 14px;
-            color: #555;
+            color: #777;
             margin-bottom: 20px;
         }
         .modal form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-.modal input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
+        .modal input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
         
         .error-message, .success-message {
             padding: 10px;
