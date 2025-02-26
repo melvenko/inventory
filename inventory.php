@@ -99,18 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             color: white;
             cursor: pointer;
         }
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
         .badge {
             display: flex;
             justify-content: center;
@@ -124,6 +112,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             padding: 10px 0;
             text-align: center;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -132,11 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         <nav style="text-align: center; margin-bottom: 20px;">
             <a href="index.php" style="text-decoration: none; font-size: 18px; font-weight: bold; color: #ff0055;">Home</a>
         </nav>
-        <div class="badge">
-            <a href="https://app.instawp.io/register?ref=fnK4lgnFE4" target="_blank">
-                <img src="images/referral-badge-1.svg" alt="Referral Badge">
-            </a>
-        </div>
         <div id="error-message" class="error-message">
             <?php if (isset($_SESSION['error'])) { echo $_SESSION['error']; unset($_SESSION['error']); } ?>
         </div>
@@ -152,6 +143,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             <label>Image:</label> <input type="file" name="image">
             <button type="submit" name="add_product">Add Product</button>
         </form>
+        <div class="badge">
+            <a href="https://app.instawp.io/register?ref=fnK4lgnFE4" target="_blank">
+                <img src="images/referral-badge-1.svg" alt="Referral Badge">
+            </a>
+        </div>
     </div>
     <footer class="footer">
         <img src="images/get.png" alt="Melvenko Designs Logo" class="footer-logo">
