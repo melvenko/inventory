@@ -321,7 +321,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             </tr>
         </table>
         <!-- <button class="close-btn" onclick="closeModal()">Cancel</button> -->
-        <button class="close-btn" onclick="closeModal()">X</button>
+        <button class="close-btn" onclick="closeModal()">x</button>
 
     </div>
 </body>
