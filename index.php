@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             text-align: center;
         }
         .modal {
-            display: none;
+            /* display: none;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -142,7 +142,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             max-width: 500px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             text-align: center;
+            z-index: 2; */
+            
+            padding: 24px;
+            width: 90%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
             z-index: 2;
+            border-radius: 20px;
+            position: relative;
         }
         .modal.active {
             display: block;
@@ -165,11 +173,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         }
 
         .modal .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+/*             
             float: left;
             margin-bottom: 10px;
             background-color: #ccc;
             color: black;
-            width: 50%;
+            width: 50%; */
         }
         .modal-overlay {
             display: none;
