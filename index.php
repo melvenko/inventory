@@ -2,7 +2,9 @@
 // index.php
 include 'database.php';
 
-session_start(); // Start session to store transient messages
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Start session only if not already active
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     $sku = $_POST['sku'];
