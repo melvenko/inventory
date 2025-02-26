@@ -40,11 +40,20 @@
             border-radius: 10px;
         }
         .right-column {
-            background: #fff;
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             min-height: 300px;
+        }
+        .right-column p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.5;
+            font-weight: 500;
         }
         .badge {
             display: flex;
@@ -61,7 +70,6 @@
             background-color: #333;
             color: white;
             text-align: center;
-            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,12 +87,12 @@
         
         <div class="grid">
             <div class="left-column">
-            <a href="inventory.php">
-                <img src="images/vecteezy.jpg" alt="Inventory System Illustration">
-            </a>
+                <a href="inventory.php">
+                    <img src="images/vecteezy.jpg" alt="Inventory System Illustration">
+                </a>
             </div>
             <div class="right-column">
-                <!-- Placeholder for future content -->
+                <p>Efficient stock management prevents shortages and overstocking. An inventory system automates tracking, reduces errors, and ensures smooth operations. This leads to better decision-making, increased efficiency, and improved customer satisfaction.</p>
             </div>
         </div>
         
