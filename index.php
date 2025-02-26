@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             flex-direction: column;
             align-items: center;
         }
-        label, input, button {
+        label, input {
             display: block;
             width: 60%; /* Reduced from 70% */
             margin: 5px 0;
