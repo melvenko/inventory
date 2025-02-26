@@ -71,7 +71,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             flex-direction: column;
             align-items: center;
         }
-        label, input {
+        label, input, button {
+            width: 100%;
+            max-width: 400px;
+            margin: 5px 0;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        /* label, input {
             display: block;
             width: 60%;
             margin: 5px 0;
@@ -83,13 +94,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
-        }
-        button {
+        } */
+        /* button {
             width: 20%;
             padding: 12px 20px;
             font-size: 14px;
             border: 1px solid #ccc;
             border-radius: 4px;
+        } */
+
+        button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
         }
         table {
             width: 100%;
@@ -152,6 +172,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         .success-message {
             background-color: rgba(0, 255, 0, 0.2);
             color: green;
+        }
+        @media (max-width: 480px) {
+            body {
+                margin: 10px;
+            }
+            .container {
+                width: 100%;
+            }
+            label, input, button {
+                width: 100%;
+            }
         }
     </style>
     <script>
