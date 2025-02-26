@@ -142,15 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             <label>Image:</label> <input type="file" name="image">
             <button type="submit" name="add_product">Add Product</button>
         </form>
-        <div class="badge">
-            <a href="https://app.instawp.io/register?ref=fnK4lgnFE4" target="_blank">
-                <img src="images/referral-badge-1.svg" alt="Referral Badge">
-            </a>
-        </div>
     </div>
-    <footer class="footer">
-        <img src="images/get.png" alt="Melvenko Designs Logo" class="footer-logo">
-        <span>&copy; 2025 Melvenko Designs. All rights reserved.</span>
-    </footer>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
