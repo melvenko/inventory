@@ -80,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         input {
             padding: 10px;
             border: 1px solid #ccc;
+            background: #f5f5f5;
             border-radius: 4px;
             box-sizing: border-box;
         }
@@ -131,6 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             left: 50%;
             transform: translate(-50%, -50%);
             background: white;
+            border-radius: 20px;
             padding: 24px;
             width: 60%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
