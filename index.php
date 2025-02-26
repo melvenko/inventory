@@ -98,15 +98,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             padding: 24px; /* Increased modal size */
             width: 60%; /* Increased modal size by 20% */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: left; /* Align content to the left */
         }
         .modal.active {
             display: block;
-            align-items: left;
+    
         }
         .modal button {
             margin-top: 10px;
             width: 20%; /* Reduced button width inside modal */
         }
+        .modal .close-btn {
+            float: left; /* Move button to the left */
+            margin-bottom: 10px;
+}
     </style>
 </head>
 <body>
@@ -141,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
                     </td>
                 </tr>
             </table>
-            <button onclick="document.getElementById('orderModal').classList.remove('active')">Close</button>
+            <button class="close-btn" onclick="document.getElementById('orderModal').classList.remove('active')">Close</button>
         </div>
     </div>
 </body>
