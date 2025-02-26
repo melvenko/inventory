@@ -61,18 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             font-family: Arial, sans-serif;
             margin: 20px;
             text-align: center;
-            height: 100%;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
         }
         .container {
             width: 60%;
             margin: auto;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
         form {
             display: flex;
@@ -228,26 +220,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
                 width: 100%;
             }
         }
-        .badge {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        footer {
-            margin-top: auto;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-        .footer-logo {
-            height: 30px;
-        }
     </style>
     <script>
         function openModal() {
@@ -333,17 +305,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         <button class="close-btn" onclick="closeModal()">x</button>
 
     </div>
-
-    <div class="badge">
-            <a href="https://app.instawp.io/register?ref=fnK4lgnFE4" target="_blank">
-                <img src="images/referral-badge-1.svg" alt="Referral Badge">
-            </a>
-        </div>
-    </div>
-    
-    <footer>
-        <img src="images/get.png" alt="Melvenko Designs Logo" class="footer-logo">
-        <span>&copy; 2025 Melvenko Designs. All rights reserved.</span>
-    </footer>
 </body>
 </html>
