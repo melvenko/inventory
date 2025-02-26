@@ -168,12 +168,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     <script>
             document.addEventListener("DOMContentLoaded", function() {
                 var errorMessage = document.getElementById("error-message");
+                var successMessage = document.getElementById("success-message");
+
                 if (errorMessage.innerText.trim() !== "") {
                     errorMessage.style.display = "block";
                     setTimeout(function() {
                         errorMessage.style.display = "none";
                     }, 3000);
                 }
+                if (successMessage.innerText.trim() !== "") {
+                successMessage.style.display = "block";
+                setTimeout(function() {
+                    successMessage.style.display = "none";
+                }, 3000);
+            }
             });
     </script>
 </head>
@@ -181,6 +189,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     <div class="container">
     <div id="error-message" class="error-message">
             <?php if (isset($_SESSION['error'])) { echo $_SESSION['error']; unset($_SESSION['error']); } ?>
+        </div>
+        <div id="success-message" class="success-message">
+            <?php if (isset($_SESSION['success'])) { echo $_SESSION['success']; unset($_SESSION['success']); } ?>
         </div>
         <h2>Add Product</h2>
         <table>
