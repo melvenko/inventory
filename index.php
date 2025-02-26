@@ -132,6 +132,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             backdrop-filter: blur(5px);
             z-index: 1;
         }
+        .error-message {
+            background-color: #d3d3d3;
+            color: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
     </style>
     <script>
         function openModal() {
@@ -146,6 +153,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
 </head>
 <body>
     <div class="container">
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="error-message">
+                <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+            </div>
+        <?php endif; ?>
         <h2>Add Product</h2>
         <table>
             <tr>
