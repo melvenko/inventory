@@ -92,7 +92,7 @@
                 </a>
             </div>
             <div class="right-column">
-                <p>Efficient stock management prevents shortages and overstocking. An inventory system automates tracking, reduces errors, and ensures smooth operations. This leads to better decision-making, increased efficiency, and improved customer satisfaction.</p>
+                <p>Effective stock management is crucial for any business to maintain smooth operations and prevent losses. Using an inventory system helps track stock levels in real-time, reducing the risk of overstocking or running out of essential products. It improves efficiency by automating stock updates, minimizing human errors, and ensuring accurate order fulfillment. Additionally, a well-managed inventory system enhances customer satisfaction by ensuring timely product availability. Ultimately, it aids in better financial planning and decision-making, leading to increased profitability and business growth.</p>
             </div>
         </div>
         
