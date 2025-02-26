@@ -13,14 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     $sale_price = $_POST['sale_price'];
     $imagePath = '';
 
-    if (!empty($_FILES['image']['name'])) {
-        $uploadDir = 'uploads/';
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true);
-        }
-        $imagePath = $uploadDir . basename($_FILES['image']['name']);
-        move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
+    if (empty($_FILES['image']['name'])) {
+        $_SESSION['error'] = "Add Product Image.";
+        header("Location: index.php");
+        exit;
     }
+
+    $uploadDir = 'uploads/';
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+    $imagePath = $uploadDir . basename($_FILES['image']['name']);
+    move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
 
     // Check if the SKU already exists
     $stmt = $conn->prepare("SELECT id FROM products WHERE sku = ?");
@@ -41,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         $stmt->bind_param("ssdds", $sku, $name, $price, $sale_price, $imagePath);
         $stmt->execute();
         $stmt->close();
+        
+        $_SESSION['success'] = "Product successfully added.";
         header("Location: index.php");
         exit;
     }
@@ -132,13 +138,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             backdrop-filter: blur(5px);
             z-index: 1;
         }
-        .error-message {
-            background-color: #d3d3d3;
-            color: #333;
+        
+        .error-message, .success-message {
             padding: 10px;
             margin-bottom: 10px;
             border-radius: 4px;
             display: none;
+        }
+        .error-message {
+            background-color: #d3d3d3;
+            color: #333;
+        }
+        .success-message {
+            background-color: rgba(0, 255, 0, 0.2);
+            color: green;
         }
     </style>
     <script>
