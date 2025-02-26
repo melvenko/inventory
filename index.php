@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             text-align: left;
         }
         button {
-            width: 20%; /* Reduced button width */
+            width: 20%; /* Reduced button width - feb 26*/
             padding: 8px;
             font-size: 14px;
         }
