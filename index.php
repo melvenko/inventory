@@ -38,6 +38,8 @@
         .left-column img {
             width: 100%;
             border-radius: 10px;
+            height: 100%;
+            object-fit: cover;
         }
         .right-column {
             background: linear-gradient(135deg, #ffffff, #f0f0f0);
@@ -45,10 +47,10 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             display: flex;
-            align-items: left;
-            text-align: justify;
+            align-items: center;
             justify-content: center;
-            min-height: 300px;
+            text-align: justify;
+            height: 100%;
         }
         .right-column p {
             font-size: 16px;
