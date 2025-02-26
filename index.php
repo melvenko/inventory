@@ -52,6 +52,10 @@
             margin-top: 20px;
         }
         footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             margin-top: 50px;
             padding: 20px;
             background-color: #333;
