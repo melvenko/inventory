@@ -71,32 +71,99 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
     <title>Inventory Management</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            text-align: center;
-        }
-        .container {
-            width: 60%;
-            margin: auto;
-        }
-        .message {
-            padding: 10px;
-            margin: 10px auto;
-            width: 80%;
-            border-radius: 5px;
-            font-weight: bold;
-            display: none;
-        }
-        .error {
-            background-color: #ffcccc;
-            border: 1px solid #ff0000;
-            color: #990000;
-        }
-        .success {
-            background-color: #ccffcc;
-            border: 1px solid #008000;
-            color: #006600;
-        }
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+input, button {
+    padding: 8px;
+    font-size: 14px;
+    margin: 5px;
+}
+
+label {
+    font-weight: bold;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Error and success message styling */
+.message {
+    padding: 10px;
+    margin: 10px auto;
+    width: 50%;
+    border-radius: 5px;
+    font-weight: bold;
+    display: none;
+}
+
+.error {
+    background-color: #ffcccc;
+    border: 1px solid #ff0000;
+    color: #990000;
+}
+
+.success {
+    background-color: #ccffcc;
+    border: 1px solid #008000;
+    color: #006600;
+}
+
+/* Modal styling */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.close-btn {
+    background-color: red;
+}
+
     </style>
     <script>
         function closeMessage() {
