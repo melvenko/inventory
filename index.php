@@ -101,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
         }
         .modal.active {
             display: block;
+            align-items: left;
         }
         .modal button {
             margin-top: 10px;
