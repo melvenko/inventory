@@ -50,7 +50,8 @@
             align-items: center;
             justify-content: center;
             text-align: justify;
-            height: 100%;
+            max-height: 300px;
+            overflow: hidden;
         }
         .right-column p {
             font-size: 16px;
