@@ -67,32 +67,63 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             min-height: 100vh;
         }
         .container {
-            flex: 1;
             width: 60%;
             margin: auto;
+            flex-grow: 1;
         }
-        .badge {
-            text-align: center;
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label, input, button {
+            width: 100%;
+            max-width: 400px;
+            margin: 5px 0;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #f5f5f5;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #ff0055;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+            color: white;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
             margin-top: 20px;
+            border-collapse: collapse;
         }
-        .badge img {
-            width: 200px;
-            height: auto;
+        table, th, td {
+            border: 1px solid black;
         }
-        footer {
-            background: #f1f1f1;
+        th, td {
             padding: 10px;
             text-align: center;
-            width: 100%;
+        }
+        .badge {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .footer {
             position: fixed;
             bottom: 0;
-            left: 0;
-        }
-        .footer-logo {
-            width: 150px;
-            height: auto;
-            display: block;
-            margin: auto;
+            width: 100%;
+            background: #fff;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -101,6 +132,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         <nav style="text-align: center; margin-bottom: 20px;">
             <a href="index.php" style="text-decoration: none; font-size: 18px; font-weight: bold; color: #ff0055;">Home</a>
         </nav>
+        <div class="badge">
+            <a href="https://app.instawp.io/register?ref=fnK4lgnFE4" target="_blank">
+                <img src="images/referral-badge-1.svg" alt="Referral Badge">
+            </a>
+        </div>
+        <div id="error-message" class="error-message">
+            <?php if (isset($_SESSION['error'])) { echo $_SESSION['error']; unset($_SESSION['error']); } ?>
+        </div>
+        <div id="success-message" class="success-message">
+            <?php if (isset($_SESSION['success'])) { echo $_SESSION['success']; unset($_SESSION['success']); } ?>
+        </div>
         <h2>Add Product</h2>
         <form method="post" enctype="multipart/form-data">
             <label>SKU:</label> <input type="text" name="sku" placeholder="SKU" required>
@@ -110,15 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             <label>Image:</label> <input type="file" name="image">
             <button type="submit" name="add_product">Add Product</button>
         </form>
-
-        <div class="badge">
-            <a href="https://app.instawp.io/register?ref=fnK4lgnFE4" target="_blank">
-                <img src="images/referral-badge-1.svg" alt="Referral Badge">
-            </a>
-        </div>
     </div>
-    
-    <footer>
+    <footer class="footer">
         <img src="images/get.png" alt="Melvenko Designs Logo" class="footer-logo">
         <span>&copy; 2025 Melvenko Designs. All rights reserved.</span>
     </footer>
