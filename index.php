@@ -75,8 +75,9 @@
         
         <div class="grid">
             <div class="left-column">
-
+            <a href="inventory.php">
                 <img src="images/vecteezy.jpg" alt="Inventory System Illustration">
+            </a>
             </div>
             <div class="right-column">
                 <!-- Placeholder for future content -->
