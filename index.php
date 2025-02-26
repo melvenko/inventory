@@ -173,20 +173,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         }
 
         .modal .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            position: fixed;
+            top: 15px;
+            right: 15px;
             background: none;
             border: none;
-            font-size: 20px;
+            font-size: 24px;
+            font-weight: bold;
             cursor: pointer;
-/*             
-            float: left;
-            margin-bottom: 10px;
-            background-color: #ccc;
             color: black;
-            width: 50%; */
         }
+
+
         .modal-overlay {
             display: none;
             position: fixed;
@@ -324,7 +322,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
                 </td>
             </tr>
         </table>
-        <button class="close-btn" onclick="closeModal()">Cancel</button>
+        <!-- <button class="close-btn" onclick="closeModal()">Cancel</button> -->
+        <button class="close-btn" onclick="closeModal()">X</button>
+
     </div>
 </body>
 </html>
