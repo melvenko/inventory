@@ -1,41 +1,3 @@
-<?php
-// index.php
-include 'database.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
-    $sku = $_POST['sku'];
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $sale_price = $_POST['sale_price'];
-    $imagePath = '';
-
-    if (!empty($_FILES['image']['name'])) {
-        $uploadDir = 'uploads/';
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true);
-        }
-        $imagePath = $uploadDir . basename($_FILES['image']['name']);
-        move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
-    }
-
-    $stmt = $conn->prepare("INSERT INTO products (sku, name, price, sale_price, image) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssdds", $sku, $name, $price, $sale_price, $imagePath);
-    $stmt->execute();
-    $stmt->close();
-    header("Location: index.php");
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
-    $product_id = $_POST['product_id'];
-    $quantity = $_POST['quantity'];
-
-    $stmt = $conn->prepare("INSERT INTO orders (product_id, quantity) VALUES (?, ?)");
-    $stmt->bind_param("ii", $product_id, $quantity);
-    $stmt->execute();
-    $stmt->close();
-    header("Location: index.php");
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
         }
         label, input {
             display: block;
-            width: 60%; /* Reduced from 70% */
+            width: 60%;
             margin: 5px 0;
             text-align: left;
         }
@@ -70,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             box-sizing: border-box;
         }
         button {
-            width: 20%; /* Reduced button width - feb 26*/
+            width: 20%;
             padding: 12px 20px;
             font-size: 14px;
             border: 1px solid #ccc;
@@ -95,22 +57,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             left: 50%;
             transform: translate(-50%, -50%);
             background: white;
-            padding: 24px; /* Increased modal size */
-            width: 60%; /* Increased modal size by 20% */
+            padding: 24px;
+            width: 60%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            text-align: left; /* Align content to the left */
-            z-index: 2; /* Ensure modal appears above overlay */
+            text-align: left;
+            z-index: 2;
         }
         .modal.active {
             display: block;
-    
         }
         .modal button {
             margin-top: 10px;
-            width: 20%; /* Reduced button width inside modal */
+            width: 20%;
         }
         .modal .close-btn {
-            float: left; /* Move button to the left */
+            float: left;
             margin-bottom: 10px;
         }
         .modal-overlay {
@@ -120,13 +81,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-            backdrop-filter: blur(5px); /* Blurring effect */
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
             z-index: 1;
         }
     </style>
     <script>
-        <!--JS for modal -->
         function openModal() {
             document.getElementById('orderModal').classList.add('active');
             document.getElementById('modalOverlay').style.display = 'block';
@@ -156,11 +116,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             </tr>
         </table>
 
-        <h2><a href="#" onclick="document.getElementById('orderModal').classList.add('active')">Place Order</a></h2>
-
-        <div id="modalOverlay" class="modal-overlay"></div>
-        <div id="orderModal" class="modal">
+        <!-- Open Modal Link -->
         <h2><a href="#" onclick="openModal()">Place Order</a></h2>
+
+        <!-- Overlay -->
+        <div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
+
+        <!-- Modal -->
+        <div id="orderModal" class="modal">
+            <h2>Place Order</h2>
             <table>
                 <tr>
                     <td>
@@ -172,10 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
                     </td>
                 </tr>
             </table>
-            <!--<button class="close-btn" onclick="document.getElementById('orderModal').classList.remove('active')">Close</button>-->
             <button class="close-btn" onclick="closeModal()">Close</button>
         </div>
     </div>
 </body>
 </html>
-
