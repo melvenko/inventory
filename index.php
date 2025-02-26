@@ -2,9 +2,7 @@
 // index.php
 include 'database.php';
 
-// Enable error reporting for debugging (remove in production)
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+session_start(); // Start session to store transient messages
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     $sku = $_POST['sku'];
@@ -22,28 +20,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
     }
 
-    // Ensure price and sale_price are cast as floats if needed
-    $price = (float)$price;
-    $sale_price = (float)$sale_price;
-
-    $stmt = $conn->prepare("INSERT INTO products (sku, name, price, sale_price, image) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssdds", $sku, $name, $price, $sale_price, $imagePath);
+    // Check if the SKU already exists
+    $stmt = $conn->prepare("SELECT id FROM products WHERE sku = ?");
+    $stmt->bind_param("s", $sku);
     $stmt->execute();
-    $stmt->close();
-    header("Location: index.php");
-    exit;
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
-    $product_id = $_POST['product_id'];
-    $quantity = $_POST['quantity'];
-
-    $stmt = $conn->prepare("INSERT INTO orders (product_id, quantity) VALUES (?, ?)");
-    $stmt->bind_param("ii", $product_id, $quantity);
-    $stmt->execute();
-    $stmt->close();
-    header("Location: index.php");
-    exit;
+    $stmt->store_result();
+    
+    if ($stmt->num_rows > 0) {
+        $_SESSION['error'] = "Product already exists. Create a new one.";
+        $stmt->close();
+        header("Location: index.php");
+        exit;
+    } else {
+        $stmt->close();
+        
+        // Insert the new product
+        $stmt = $conn->prepare("INSERT INTO products (sku, name, price, sale_price, image) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssdds", $sku, $name, $price, $sale_price, $imagePath);
+        $stmt->execute();
+        $stmt->close();
+        header("Location: index.php");
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -138,6 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             padding: 10px;
             margin-bottom: 10px;
             border-radius: 4px;
+            display: none;
         }
     </style>
     <script>
@@ -150,14 +149,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
             document.getElementById('modalOverlay').style.display = 'none';
         }
     </script>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var errorMessage = document.getElementById("error-message");
+                if (errorMessage.innerText.trim() !== "") {
+                    errorMessage.style.display = "block";
+                    setTimeout(function() {
+                        errorMessage.style.display = "none";
+                    }, 3000);
+                }
+            });
+    </script>
 </head>
 <body>
     <div class="container">
-        <?php if (isset($_SESSION['error'])): ?>
-            <div class="error-message">
-                <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
-            </div>
-        <?php endif; ?>
+    <div id="error-message" class="error-message">
+            <?php if (isset($_SESSION['error'])) { echo $_SESSION['error']; unset($_SESSION['error']); } ?>
+        </div>
         <h2>Add Product</h2>
         <table>
             <tr>
