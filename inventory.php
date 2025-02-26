@@ -105,19 +105,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             margin-top: 20px;
         }
         .footer {
-            position: fixed;
+            position: relative;
             bottom: 0;
             width: 100%;
-            background: #fff;
+            background: #2c2c2c;
             padding: 10px 0;
             text-align: center;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .footer-logo {
-            width: 50px;
+            width: 100px;
             height: auto;
             margin-right: 10px;
         }
