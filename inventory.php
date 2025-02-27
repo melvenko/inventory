@@ -62,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             margin: 0;
             padding: 0;
             text-align: center;
-            display: flex;
             flex-direction: column;
             background-color: #f8f8f8;
             display: flex;
@@ -102,7 +101,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             margin: 5px 0;
         }
         input {
-            padding: 10px;
             background: #f5f5f5;
             box-sizing: border-box;
             padding: 12px;
@@ -182,7 +180,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             position: absolute;
             /* top: 15px; */
             top: 0px;
-            right: -170px;
+            /* right: -170px; */
+            right: 10px;
             /* right: 20px; */
             background: none;
             border: none;
@@ -227,8 +226,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         }
         .modal form input,
         .modal form button {
-            width: 90%;
-            max-width: 300px; /* Keeps form elements at a readable size */
+            width: calc(100% - 20px);
+            max-width: 400px;
+
+            /* width: 90%;
+            max-width: 300px; Keeps form elements at a readable size */
             text-align: center;
         }
         .modal form input {
