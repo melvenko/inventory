@@ -265,7 +265,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             background-color: #cc0044;
         }
         
-        .form-group input:focus,
+        /* .form-group input:focus, */
         .form-group input:valid {
             border-color: #ff2a6d;
         }
