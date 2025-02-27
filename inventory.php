@@ -35,8 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     if ($stmt->num_rows > 0) {
         $_SESSION['error'] = "Product already exists. Create a new one.";
         $stmt->close();
-        header("Location: index.php");
+        header("Refresh:0; url=index.php");
         exit;
+
     } else {
         $stmt->close();
         
@@ -47,8 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         $stmt->close();
         
         $_SESSION['success'] = "Product successfully added.";
-        header("Location: index.php");
+        header("Refresh:0; url=index.php");
         exit;
+
     }
 }
 ?>
@@ -253,21 +255,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         document.addEventListener("DOMContentLoaded", function() {
             var errorMessage = document.getElementById("error-message");
             var successMessage = document.getElementById("success-message");
-            
-            if (errorMessage.innerText.trim() !== "") {
+
+            if (errorMessage && errorMessage.innerText.trim() !== "") {
                 errorMessage.style.display = "block";
                 setTimeout(function() {
                     errorMessage.style.display = "none";
                 }, 3000);
             }
-            
-            if (successMessage.innerText.trim() !== "") {
+
+            if (successMessage && successMessage.innerText.trim() !== "") {
                 successMessage.style.display = "block";
                 setTimeout(function() {
                     successMessage.style.display = "none";
                 }, 3000);
             }
         });
+
     </script>
 
     <script>
@@ -286,12 +289,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         <nav style="text-align: center; margin-bottom: 20px;">
             <a href="index.php" style="text-decoration: none; font-size: 18px; font-weight: bold; color: #ff0055;">Home</a>
         </nav>
-        <div id="error-message" class="error-message">
-            <?php if (isset($_SESSION['error'])) { echo $_SESSION['error']; unset($_SESSION['error']); } ?>
-        </div>
-        <div id="success-message" class="success-message">
-            <?php if (isset($_SESSION['success'])) { echo $_SESSION['success']; unset($_SESSION['success']); } ?>
-        </div>
+            <div id="error-message" class="error-message" style="display: <?php echo isset($_SESSION['error']) ? 'block' : 'none'; ?>;">
+                <?php 
+                    if (isset($_SESSION['error'])) { 
+                        echo $_SESSION['error']; 
+                        unset($_SESSION['error']); 
+                    } 
+                ?>
+            </div>
+            <div id="success-message" class="success-message" style="display: <?php echo isset($_SESSION['success']) ? 'block' : 'none'; ?>;">
+                <?php 
+                    if (isset($_SESSION['success'])) { 
+                        echo $_SESSION['success']; 
+                        unset($_SESSION['success']); 
+                    } 
+                ?>
+            </div>
+
         <h2>Add New Product</h2>
         <form method="post" enctype="multipart/form-data">
             <input type="text" name="sku" placeholder="SKU" required>
