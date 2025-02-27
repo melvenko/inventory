@@ -153,7 +153,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             background-color: #cc0044;
         }
 
-        
+        #orderModal{
+            align-items: center;
+        }
         .modal {
             display: none;
             position: fixed;
