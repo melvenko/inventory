@@ -298,7 +298,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             <input type="text" name="name" placeholder="Name" required>
             <input type="text" name="price" placeholder="Price" required>
             <input type="text" name="sale_price" placeholder="Sale Price">
-            <input type="file" name="image">
+            <input type="file" name="image" required>
             <button type="submit" name="add_product">Add Product</button>
         </form>
         </td>
