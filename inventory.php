@@ -136,6 +136,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         }
         
     </style>
+
+    <script>
+            function openModal() {
+                document.getElementById('orderModal').classList.add('active');
+                document.getElementById('modalOverlay').style.display = 'block';
+            }
+            function closeModal() {
+                document.getElementById('orderModal').classList.remove('active');
+                document.getElementById('modalOverlay').style.display = 'none';
+            }
+        </script>
 </head>
 <body>
     <div class="container">
