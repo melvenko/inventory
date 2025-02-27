@@ -159,30 +159,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         .modal.active {
             display: block;
         }
-        /* .modal button {
-            padding: 12px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 10px;
-            background-color: #ff0055;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background 0.3s;
-            color: white;
-            cursor: pointer;
-        } */
-        /* .modal button[type="submit"] {
-            background-color: #ff0055;
-            color: white;
-        } */
 
         .modal .close-btn {
             position: absolute;
-            /* top: 15px; */
             top: 0px;
-            /* right: -170px; */
-            right: 10px;
-            /* right: 20px; */
+            right: -170px;
             background: none;
             border: none;
             font-size: 24px;
