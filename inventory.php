@@ -265,6 +265,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             background-color: #cc0044;
         }
         
+        .form-group input:focus,
+        .form-group input:valid {
+            border-color: #ff2a6d;
+        }
         .error-message, .success-message {
             padding: 10px;
             margin-bottom: 10px;
@@ -367,7 +371,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
 
 
         <h2>Add New Product</h2>
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" class="form-group">
             <input type="text" name="sku" placeholder="SKU" required>
             <input type="text" name="name" placeholder="Name" required>
             <input type="text" name="price" placeholder="Price" required>
