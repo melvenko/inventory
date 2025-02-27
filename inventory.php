@@ -102,11 +102,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             position: relative;
             margin-bottom: 20px;
         }
-        label, input, button {
+        /* label, input, button {
             width: 100%;
             max-width: 400px;
             margin: 5px 0;
-        }
+        } */
         input {
             padding: 10px;
             /* border: 1px solid #ccc; */
