@@ -352,8 +352,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             <tr>
                 <td>
                     <form method="post">
-                        <label>Enter Product ID:</label> <input type="text" id="product_id" name="product_id" placeholder="Product ID" required>
-                        <label>Enter Quantity:</label> <input type="number" id="quantity" name="quantity" placeholder="Quantity" required>
+                        <input type="text" id="product_id" name="product_id" placeholder="Enter Product ID" required>
+                        <input type="number" id="quantity" name="quantity" placeholder="Enter Quantity" required>
                         <button type="submit" name="place_order">Submit Order</button>
                     </form>
                 </td>
