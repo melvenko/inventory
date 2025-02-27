@@ -93,24 +93,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             margin-bottom: 15px;
             color: #333;
         }
-        .form-group {
-            position: relative;
-            margin-bottom: 20px;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            outline: none;
-            transition: 0.3s;
-        }
+        
 
         form {
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            position: relative;
+            margin-bottom: 20px;
         }
         label, input, button {
             width: 100%;
@@ -133,7 +124,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             transition: 0.3s;
         }
 
-        }
         button {
             padding: 10px 20px;
             border: 1px solid #ccc;
@@ -145,27 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             color: white;
             cursor: pointer;
         }
-        .badge {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .footer {
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            background: #2c2c2c;
-            padding: 10px 0;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .footer-logo {
-            width: 100px;
-            height: auto;
-            margin-right: 10px;
-        }
+        
     </style>
 </head>
 <body>
@@ -179,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         <div id="success-message" class="success-message">
             <?php if (isset($_SESSION['success'])) { echo $_SESSION['success']; unset($_SESSION['success']); } ?>
         </div>
-        <h2>Add Product</h2>
+        <h2>Add New Product</h2>
         <form method="post" enctype="multipart/form-data">
             <input type="text" name="sku" placeholder="SKU" required>
             <input type="text" name="name" placeholder="Name" required>
