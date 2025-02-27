@@ -135,6 +135,119 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             cursor: pointer;
         }
         
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 2;
+        }
+        .modal.active {
+            display: block;
+        }
+        .modal button {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff0055;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+            color: white;
+            cursor: pointer;
+        }
+        .modal button[type="submit"] {
+            background-color: #ff0055;
+            color: white;
+        }
+
+        .modal .close-btn {
+            position: absolute;
+            /* top: 15px; */
+            top: 0px;
+            right: -170px;
+            /* right: 20px; */
+            background: none;
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            color: black;
+            transition: color 0.3s ease;
+        }
+        .modal .close-btn:hover {
+            color: red;
+        }
+
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            z-index: 1;
+        }
+        .modal h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .modal p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        .modal form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .modal input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .error-message, .success-message {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .error-message {
+            background-color:rgb(236, 5, 5);
+            color: #fff;
+        }
+        .success-message {
+            background-color: rgba(0, 255, 0, 0.2);
+            color: green;
+        }
+        @media (max-width: 480px) {
+            body {
+                margin: 10px;
+            }
+            .container {
+                width: 100%;
+            }
+            label, input, button {
+                width: 100%;
+            }
+        }
     </style>
 
     <script>
@@ -146,7 +259,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
                 document.getElementById('orderModal').classList.remove('active');
                 document.getElementById('modalOverlay').style.display = 'none';
             }
-        </script>
+    </script>
 </head>
 <body>
     <div class="container">
