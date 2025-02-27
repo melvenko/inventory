@@ -130,10 +130,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             background-color: #ff0055;
             font-size: 16px;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: background 0.3s ease;
             color: white;
             cursor: pointer;
         }
+        button:hover {
+            background-color: #cc0044;
+        }
+
         .order-button {
             background-color: #ff0055;
             color: white;
