@@ -70,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             text-align: center;
             display: flex;
             flex-direction: column;
-            /* min-height: 100vh; */
             background-color: #f8f8f8;
             display: flex;
             justify-content: center;
@@ -158,6 +157,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             <input type="file" name="image">
             <button type="submit" name="add_product">Add Product</button>
         </form>
+        </td>
+            </tr>
+        </table>
+
+        <!-- Open Modal Link -->
+        <h2><a href="javascript:void(0)" onclick="openModal()">Place Order</a></h2>
+    </div>
+
+    <!-- Overlay -->
+    <div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
+
+    <!-- Modal -->
+    <div id="orderModal" class="modal">
+        <h2>New Order</h2>
+        <p>Select a product and quantity to place an order.</p>
+        <table>
+            <tr>
+                <td>
+                    <form method="post">
+                        <label>Enter Product ID:</label> <input type="text" id="product_id" name="product_id" placeholder="Product ID" required>
+                        <label>Enter Quantity:</label> <input type="number" id="quantity" name="quantity" placeholder="Quantity" required>
+                        <button type="submit" name="place_order">Submit Order</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <!-- <button class="close-btn" onclick="closeModal()">Cancel</button> -->
+        <button class="close-btn" onclick="closeModal()">x</button>
+
     </div>
     <?php include 'footer.php'; ?>
 </body>
