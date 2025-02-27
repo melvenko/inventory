@@ -57,12 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
 <head>
     <title>Inventory Management</title>
     <style>
-        * {
+        /* * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
-        }
+        } */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -109,12 +109,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         }
         input {
             padding: 10px;
-            /* border: 1px solid #ccc; */
             background: #f5f5f5;
-            /* border-radius: 4px; */
             box-sizing: border-box;
-
-            /*width: 100%; */
             padding: 12px;
             font-size: 16px;
             border: 2px solid #ddd;
