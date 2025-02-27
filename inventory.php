@@ -153,9 +153,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             background-color: #cc0044;
         }
 
-        #orderModal{
-            align-items: center;
-        }
         .modal {
             display: none;
             position: fixed;
@@ -174,7 +171,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         .modal.active {
             display: block;
         }
-        .modal button {
+        /* .modal button {
             padding: 12px 20px;
             font-size: 16px;
             border: none;
@@ -185,11 +182,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             transition: background 0.3s;
             color: white;
             cursor: pointer;
-        }
-        .modal button[type="submit"] {
+        } */
+        /* .modal button[type="submit"] {
             background-color: #ff0055;
             color: white;
-        }
+        } */
 
         .modal .close-btn {
             position: absolute;
@@ -236,10 +233,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* gap: 12px; */
             width: 100%;
         }
-        .modal form label,
         .modal form input,
         .modal form button {
             width: 90%;
@@ -252,6 +247,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             border: 2px solid #ddd;
             border-radius: 5px;
             outline: none;
+            
             transition: 0.3s;
         }
         .modal form button {
@@ -267,14 +263,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         }
         .modal form button:hover {
             background-color: #cc0044;
-        }
-
-
-        .modal input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
         }
         
         .error-message, .success-message {
