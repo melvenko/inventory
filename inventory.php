@@ -139,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             display: none;
             position: fixed;
             top: 50%;
-            /* left: 50%; */
+            left: 50%;
             transform: translate(-50%, -50%);
             background: white;
             border-radius: 20px;
