@@ -249,6 +249,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             }
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var errorMessage = document.getElementById("error-message");
+            var successMessage = document.getElementById("success-message");
+            
+            if (errorMessage.innerText.trim() !== "") {
+                errorMessage.style.display = "block";
+                setTimeout(function() {
+                    errorMessage.style.display = "none";
+                }, 3000);
+            }
+            
+            if (successMessage.innerText.trim() !== "") {
+                successMessage.style.display = "block";
+                setTimeout(function() {
+                    successMessage.style.display = "none";
+                }, 3000);
+            }
+        });
+    </script>
 
     <script>
             function openModal() {
