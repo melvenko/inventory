@@ -181,11 +181,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         </div>
         <h2>Add Product</h2>
         <form method="post" enctype="multipart/form-data">
-            <label>SKU:</label> <input type="text" name="sku" placeholder="SKU" required>
-            <label>Name:</label> <input type="text" name="name" placeholder="Name" required>
-            <label>Price:</label> <input type="text" name="price" placeholder="Price" required>
-            <label>Sale Price:</label> <input type="text" name="sale_price" placeholder="Sale Price">
-            <label>Image:</label> <input type="file" name="image">
+            <input type="text" name="sku" placeholder="SKU" required>
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="price" placeholder="Price" required>
+            <input type="text" name="sale_price" placeholder="Sale Price">
+            <input type="file" name="image">
             <button type="submit" name="add_product">Add Product</button>
         </form>
     </div>
