@@ -57,20 +57,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
 <head>
     <title>Inventory Management</title>
     <style>
-        body {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
+        }
+        body {
+            /* font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            min-height: 100vh; */
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
-            width: 60%;
+            /* width: 60%;
             margin: auto;
-            flex-grow: 1;
+            flex-grow: 1; */
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+
         form {
             display: flex;
             flex-direction: column;
@@ -83,10 +119,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         }
         input {
             padding: 10px;
-            border: 1px solid #ccc;
+            /* border: 1px solid #ccc; */
             background: #f5f5f5;
-            border-radius: 4px;
+            /* border-radius: 4px; */
             box-sizing: border-box;
+
+            /*width: 100%; */
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+
         }
         button {
             padding: 10px 20px;
