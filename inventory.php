@@ -33,11 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     $stmt->store_result();
     
     if ($stmt->num_rows > 0) {
-        $_SESSION['error'] = "Product already exists. Create a new one.";
-        $stmt->close();
-        header("Refresh:0; url=index.php");
-        exit;
-
+        $error = "Product already exists. Create a new one.";
     } else {
         $stmt->close();
         
@@ -47,12 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         $stmt->execute();
         $stmt->close();
         
-        $_SESSION['success'] = "Product successfully added.";
-        header("Refresh:0; url=index.php");
-        exit;
+        $success = "Product successfully added.";
+        }
 
     }
-}
+
 ?>
 <!DOCTYPE html>
 <html>
