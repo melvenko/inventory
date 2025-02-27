@@ -64,13 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             font-family: Arial, sans-serif;
         }
         body {
-            /* font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; */
+            /* min-height: 100vh; */
             background-color: #f8f8f8;
             display: flex;
             justify-content: center;
