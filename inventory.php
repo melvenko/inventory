@@ -134,6 +134,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             color: white;
             cursor: pointer;
         }
+        .order-button {
+            background-color: #ff0055;
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .order-button:hover {
+            background-color: #cc0044;
+        }
+
         
         .modal {
             display: none;
@@ -213,8 +228,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         .modal form {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 12px;
+            width: 100%;
         }
+        .modal form label,
+        .modal form input,
+        .modal form button {
+            width: 80%;
+            text-align: center;
+        }
+        .modal form input {
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .modal form button {
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            background-color: #ff0055;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .modal form button:hover {
+            background-color: #cc0044;
+        }
+
 
         .modal input {
             padding: 10px;
@@ -338,7 +384,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         </table>
 
         <!-- Open Modal Link -->
-        <h2><a href="javascript:void(0)" onclick="openModal()">Place Order</a></h2>
+        <button onclick="openModal()" class="order-button">Place Order</button>
+
     </div>
 
     <!-- Overlay -->
