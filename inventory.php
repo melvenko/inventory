@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             background-color: #cc0044;
         }
 
-        /* .modal {
+        .modal {
             display: none;
             position: fixed;
             top: 50%;
@@ -155,30 +155,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             text-align: center;
             z-index: 2;
-        } */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            border-radius: 20px;
-            padding: 24px;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            z-index: 1000;
         }
-
         .modal.active {
             display: block;
         }
 
         .modal .close-btn {
             position: absolute;
-            top: 10px;
+            top: 0px;
             right: -170px;
             background: none;
             border: none;
@@ -188,7 +172,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             color: black;
             transition: color 0.3s ease;
         }
-
         .modal .close-btn:hover {
             color: red;
         }
@@ -199,13 +182,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(3px);
-            z-index: 999;
+            z-index: 1;
         }
-
         .modal h2 {
             font-size: 22px;
             margin-bottom: 10px;
@@ -220,14 +202,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            width: 100%;
         }
         .modal form input,
         .modal form button {
-            width: 100%;
-            max-width: 300px;
-        }
+            width: calc(100% - 20px);
+            max-width: 400px;
 
+            /* width: 90%;
+            max-width: 300px; Keeps form elements at a readable size */
+            text-align: center;
+        }
         .modal form input {
             padding: 12px;
             font-size: 16px;
@@ -302,46 +288,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             }
         });
 
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const openModalBtn = document.getElementById("openModalBtn");
-            const closeModalBtn = document.querySelector(".modal .close-btn");
-            const modal = document.getElementById("modal");
-            const modalOverlay = document.getElementById("modalOverlay");
-
-            // Function to show the modal
-            function openModal() {
-                modal.style.display = "block";
-                modalOverlay.style.display = "block";
-                document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
-            }
-
-            // Function to hide the modal
-            function closeModal() {
-                modal.style.display = "none";
-                modalOverlay.style.display = "none";
-                document.body.style.overflow = "auto"; // Restore scrolling
-            }
-
-            // Open modal when clicking the button
-            openModalBtn.addEventListener("click", openModal);
-
-            // Close modal when clicking the close button
-            closeModalBtn.addEventListener("click", closeModal);
-
-            // Close modal when clicking outside of it (on the overlay)
-            modalOverlay.addEventListener("click", closeModal);
-
-            // Close modal when pressing the "Escape" key
-            document.addEventListener("keydown", function (event) {
-                if (event.key === "Escape" && modal.style.display === "block") {
-                    closeModal();
-                }
-            });
-        });
-
     </script>
 
+    <script>
+            function openModal() {
+                document.getElementById('orderModal').classList.add('active');
+                document.getElementById('modalOverlay').style.display = 'block';
+            }
+            function closeModal() {
+                document.getElementById('orderModal').classList.remove('active');
+                document.getElementById('modalOverlay').style.display = 'none';
+            }
+    </script>
 </head>
 <body>
     <div class="container">
