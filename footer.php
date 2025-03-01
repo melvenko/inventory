@@ -21,12 +21,7 @@
     }
 </style>
 
-<div class="badge">
-            <p>Need a reliable staging environment and managed WordPress hosting? Sign up for InstaWP today!</p>
-            <a href="https://app.instawp.io/register?ref=fnK4lgnFE4" target="_blank">
-                <img src="images/referral-badge-1.svg" alt="Referral Badge">
-            </a>
-        </div>
+
 <footer>
     <img src="images/get.png" alt="Melvenko Designs Logo" class="footer-logo">
     <span>&copy; 2025 Melvenko Designs. All rights reserved.</span>
