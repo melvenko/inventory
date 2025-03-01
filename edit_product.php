@@ -1,6 +1,7 @@
 <?php
 // edit_product.php
 include 'database.php';
+include 'sidebar.php'; // Include the sidebar
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
