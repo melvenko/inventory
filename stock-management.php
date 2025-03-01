@@ -32,6 +32,12 @@ if (isset($_GET['delete_id'])) {
         .content {
             flex-grow: 1;
             padding: 20px;
+            margin-left: 80px; /* Adjust to accommodate sidebar */
+        }
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: left;
         }
         table {
             width: 100%;
