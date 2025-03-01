@@ -91,6 +91,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             border-radius: 5px;
             outline: none;
         }
+        .order-button {
+            width: auto; /* Change from 100% to auto */
+            display: block; /* Ensures it doesn't stretch */
+            margin-top: 10px; /* Adjust spacing */
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #ff0055;
+            color: white;
+            cursor: pointer;
+        }
+
         button {
             padding: 10px;
             border-radius: 10px;
