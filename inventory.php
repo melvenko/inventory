@@ -91,6 +91,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             border-radius: 5px;
             outline: none;
         }
+        button {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #ff0055;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #cc0044;
+        }
         .order-button {
             width: auto; /* Change from 100% to auto */
             display: block; /* Ensures it doesn't stretch */
@@ -102,16 +112,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             cursor: pointer;
         }
 
-        button {
-            padding: 10px;
-            border-radius: 10px;
-            background-color: #ff0055;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #cc0044;
-        }
     </style>
 </head>
 <body>
@@ -129,5 +129,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         <!-- Place Order Button -->
         <button onclick="openModal()" class="order-button">Place Order</button>
     </div>
+    
+    <script>
+        function openModal() {
+            alert("Place Order functionality triggered. Implement order logic here.");
+            // You can add further logic to show a modal or process an order
+        }
+    </script>
 </body>
 </html>
