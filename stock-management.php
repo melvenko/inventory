@@ -1,7 +1,6 @@
 <?php
 // stock_management.php
 include 'database.php';
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start(); // Start session only if not already active
 }
@@ -29,34 +28,6 @@ if (isset($_GET['delete_id'])) {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-        .sidebar {
-            width: 60px;
-            background-color: #2c3e50;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-        }
-        .menu-item {
-            color: white;
-            text-decoration: none;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 10px 0;
-            transition: background 0.3s;
-            border-radius: 5px;
-        }
-        .menu-item:hover {
-            background-color: #34495e;
-        }
-        .menu-item span {
-            font-size: 12px;
-            margin-top: 5px;
         }
         .content {
             flex-grow: 1;
@@ -91,17 +62,7 @@ if (isset($_GET['delete_id'])) {
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <a href="index.php" class="menu-item" title="Home">
-            🏠<span>Home</span>
-        </a>
-        <a href="inventory.php" class="menu-item" title="Add Products">
-            ➕<span>Add</span>
-        </a>
-        <a href="stock_management.php" class="menu-item" title="Manage Products">
-            📦<span>Manage</span>
-        </a>
-    </div>
+    <?php include 'sidebar.php'; ?>
     <div class="content">
         <h2>Stock Management</h2>
         <table>
