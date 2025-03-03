@@ -44,7 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         $stmt->close();
         
         // Insert the new product
-        $stmt = $conn->prepare("INSERT INTO products (sku, name, price, sale_price, image) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO products (sku, name, price, sale_price, color, size, image) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $price = (float) $_POST['price'];
+        $sale_price = (float) $_POST['sale_price'];
         $stmt->bind_param("ssdds", $sku, $name, $price, $sale_price, $color, $size, $imagePath);
         $stmt->execute();
         $stmt->close();
