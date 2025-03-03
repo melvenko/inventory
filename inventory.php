@@ -270,6 +270,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
                 width: 100%;
             }
         }
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background: #f5f5f5;
+            transition: 0.3s;
+            cursor: pointer;
+            appearance: none;
+        }
+
+        select:focus {
+            border-color: #ff2a6d;
+            outline: none;
+            background: white;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
