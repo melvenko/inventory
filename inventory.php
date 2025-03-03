@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     $name = $_POST['name'];
     $price = $_POST['price'];
     $sale_price = $_POST['sale_price'];
+    $color = $_POST['color'];
+    $size = $_POST['size'];
     $imagePath = '';
 
     if (empty($_FILES['image']['name'])) {
@@ -42,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         $stmt->close();
         
         // Insert the new product
-        $stmt = $conn->prepare("INSERT INTO products (sku, name, price, sale_price, image) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssdds", $sku, $name, $price, $sale_price, $imagePath);
+        $stmt = $conn->prepare("INSERT INTO products (sku, name, price, sale_price, image) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssdds", $sku, $name, $price, $sale_price, $color, $size, $imagePath);
         $stmt->execute();
         $stmt->close();
         
@@ -350,6 +352,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             <input type="text" name="name" placeholder="Name" required>
             <input type="text" name="price" placeholder="Price" required>
             <input type="text" name="sale_price" placeholder="Sale Price">
+            <input type="text" name="color" placeholder="Color" required>
+            <select name="size" required>
+                <option value="">Select Size</option>
+                <optgroup label="US Sizes">
+                    <option value="US 6">US 6</option>
+                    <option value="US 7">US 7</option>
+                    <option value="US 8">US 8</option>
+                    <option value="US 9">US 9</option>
+                    <option value="US 10">US 10</option>
+                </optgroup>
+                <optgroup label="UK Sizes">
+                    <option value="UK 5">UK 5</option>
+                    <option value="UK 6">UK 6</option>
+                    <option value="UK 7">UK 7</option>
+                    <option value="UK 8">UK 8</option>
+                    <option value="UK 9">UK 9</option>
+                </optgroup>
+            </select>
             <input type="file" name="image" required>
             <button type="submit" name="add_product">Add Product</button>
         </form>
