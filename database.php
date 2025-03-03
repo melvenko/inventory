@@ -29,6 +29,8 @@ $sql = "CREATE TABLE IF NOT EXISTS products (
     name VARCHAR(255),
     price DECIMAL(10,2),
     sale_price DECIMAL(10,2),
+    color VARCHAR(50),
+    size VARCHAR(15),
     image VARCHAR(255)
 )";
 $conn->query($sql);
