@@ -228,6 +228,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
             
             transition: 0.3s;
         }
+        .modal form input:focus,
+        .modal form input:valid {
+            border-color: #ff2a6d;
+        }
+
         .modal form button {
             padding: 12px;
             font-size: 16px;
