@@ -214,9 +214,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
         .modal form button {
             width: calc(100% - 20px);
             max-width: 400px;
-
-            /* width: 90%;
-            max-width: 300px; Keeps form elements at a readable size */
             text-align: center;
         }
         .modal form input {
